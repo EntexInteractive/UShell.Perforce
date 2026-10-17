@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <TargetFramework>net10.0</TargetFramework>
+        <Configurations>Debug;Release;Analyze</Configurations>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <Company>Entex Interactive, LLC</Company>
+        <Copyright>Copyright $(Company). All Rights Reserved.</Copyright>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
+        <Version>$(VersionPrefix)$(AssemblyVersion)</Version>
+        <Authors>$(Company);Perforce Software Inc.</Authors>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        <Optimize>True</Optimize>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <DebugSymbols>True</DebugSymbols>
+        <DebugType>Full</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Analyze|AnyCPU'">
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\UShell.Core\UShell.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="p4api.net" Version="2026.1.299.3959" />
+    </ItemGroup>
+
+</Project>
